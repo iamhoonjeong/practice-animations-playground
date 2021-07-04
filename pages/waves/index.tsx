@@ -3,7 +3,11 @@ import App from '../../animations/waves/app';
 
 export default function Waves() {
   useEffect(() => {
-    new App();
+    let waves = new App();
+
+    return () => {
+      window.removeEventListener('resize', waves.resize);
+    };
   });
-  return <div className="ground"></div>;
+  return <div className="waves"></div>;
 }

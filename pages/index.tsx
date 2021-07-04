@@ -3,7 +3,11 @@ import App from '../animations/waveBall/app';
 
 export default function WaveBall() {
   useEffect(() => {
-    new App();
+    const waveBall = new App();
+
+    return () => {
+      window.removeEventListener('resize', waveBall.resize);
+    };
   });
-  return <div className="ground"></div>;
+  return <div className="wave-ball"></div>;
 }

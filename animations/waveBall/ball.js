@@ -8,8 +8,8 @@ export default class Ball {
     this.max = Math.random() * 100 + 150;
 
     const diameter = radius;
-    this.x = diameter + (Math.random() * stageWidth - diameter);
-    this.y = diameter + (Math.random() * stageHeight - diameter);
+    this.x = stageWidth / 2;
+    this.y = stageHeight / 2;
   }
 
   draw(ctx, stageWidth, stageHeight) {

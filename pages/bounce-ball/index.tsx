@@ -3,7 +3,11 @@ import App from '../../animations/bounceBall/app';
 
 export default function BounceBall() {
   useEffect(() => {
-    new App();
+    const bounceBall = new App();
+
+    return () => {
+      window.removeEventListener('resize', bounceBall.resize);
+    };
   });
-  return <div className="ground"></div>;
+  return <div className="bounce-ball"></div>;
 }

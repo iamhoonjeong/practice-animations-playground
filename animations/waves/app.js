@@ -7,7 +7,7 @@ export default class App {
 
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
-    const ground = document.querySelector('.ground');
+    const ground = document.querySelector('.waves');
     ground.appendChild(this.canvas);
 
     this.waveGroup = new WaveGroup();

@@ -5,7 +5,7 @@ export default class App {
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d');
 
-    const ground = document.querySelector('.ground');
+    const ground = document.querySelector('.wave-ball');
     ground.appendChild(this.canvas);
 
     this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
