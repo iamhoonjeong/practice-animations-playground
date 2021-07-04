@@ -28,7 +28,7 @@ export default function Menu() {
   return (
     <Wrap>
       <Link href="/">
-        <Href>index</Href>
+        <Href>Wave Ball</Href>
       </Link>
       <Link href="/bounce-ball">
         <Href>Bounce Ball</Href>
