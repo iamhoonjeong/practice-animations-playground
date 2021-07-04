@@ -1,21 +1,19 @@
-import Ball from './ball';
+import WaveGroup from './wavegroup';
 
 export default class App {
   constructor() {
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d');
 
+    this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+
     const ground = document.querySelector('.ground');
     ground.appendChild(this.canvas);
 
-    this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+    this.waveGroup = new WaveGroup();
 
     window.addEventListener('resize', this.resize.bind(this), false);
     this.resize();
-
-    this.ball = new Ball(this.stageWidth, this.stageHeight, 30, 10);
-    this.ball2 = new Ball(this.stageWidth, this.stageHeight, 20, 20);
-    this.ball3 = new Ball(this.stageWidth, this.stageHeight, 60, 5);
 
     requestAnimationFrame(this.animate.bind(this));
   }
@@ -26,16 +24,16 @@ export default class App {
 
     this.canvas.width = this.stageWidth * this.pixelRatio;
     this.canvas.height = this.stageHeight * this.pixelRatio;
-
     this.ctx.scale(this.pixelRatio, this.pixelRatio);
+
+    this.waveGroup.resize(this.stageWidth, this.stageHeight);
   }
 
-  animate(t) {
-    requestAnimationFrame(this.animate.bind(this));
+  animate() {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-    this.ball.draw(this.ctx, this.stageWidth, this.stageHeight);
-    this.ball2.draw(this.ctx, this.stageWidth, this.stageHeight);
-    this.ball3.draw(this.ctx, this.stageWidth, this.stageHeight);
+    this.waveGroup.draw(this.ctx);
+
+    requestAnimationFrame(this.animate.bind(this));
   }
 }

@@ -12,7 +12,9 @@ export default class App {
 
     window.addEventListener('resize', this.resize.bind(this), false);
     this.resize();
+
     this.ball = new Ball(this.stageWidth, this.stageHeight, 30, 15);
+    this.ball2 = new Ball(this.stageWidth, this.stageHeight, 60, 10);
 
     requestAnimationFrame(this.animate.bind(this));
   }
@@ -29,8 +31,10 @@ export default class App {
 
   animate() {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
-    requestAnimationFrame(this.animate.bind(this));
 
     this.ball.draw(this.ctx, this.stageWidth, this.stageHeight);
+    this.ball2.draw(this.ctx, this.stageWidth, this.stageHeight);
+
+    requestAnimationFrame(this.animate.bind(this));
   }
 }

@@ -33,6 +33,9 @@ export default function Menu() {
       <Link href="/bounce-ball">
         <Href>Bounce Ball</Href>
       </Link>
+      <Link href="/waves">
+        <Href>Waves</Href>
+      </Link>
     </Wrap>
   );
 }

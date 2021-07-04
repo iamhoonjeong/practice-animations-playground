@@ -31,6 +31,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="icon" href="./static/favicon.svg" />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap"
             rel="stylesheet"
